@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NGXLogger } from 'ngx-logger';
+
 import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
-
 
 @Component({
 	selector: 'app-root',

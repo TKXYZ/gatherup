@@ -29,11 +29,11 @@ import { EventService } from './services/event/event.service';
 		FormsModule,
 		HttpClientModule,
 		LoggerModule.forRoot({
-			serverLoggingUrl: 'http://localhost:9999/api/logs', // URL to POST logs
+			serverLoggingUrl: 'http://localhost:9999/api/logs', // URL to POST logs to
 			level: NgxLoggerLevel.DEBUG, // only log messages of this level or higher (OFF disables logger for client)
 			serverLogLevel: NgxLoggerLevel.ERROR, // only send log messages of this level or higher to the server (OFF disables logger for server)
 			timestampFormat: 'long', // format for the timestamp displayed w/ each log message
-			colorScheme: ['purple', 'teal', 'gray', 'gray', 'red', 'red', 'red'] // TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF
+			colorScheme: ['purple', 'teal', 'gray', 'gray', 'yellow', 'red', 'red'] // TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF
 		})
 	],
 	providers: [
