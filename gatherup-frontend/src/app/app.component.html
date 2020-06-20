@@ -16,10 +16,10 @@
 					<a class="nav-link" [routerLink]="['/profile']" routerLinkActive="router-link-active">Profile</a>
 				</li>
 				<li class="nav-item" *ngIf="sessionKey">
-					<a class="nav-link" [routerLink]="['/eventview']" routerLinkActive="router-link-active">Event View</a>
+					<a class="nav-link" [routerLink]="['/eventlist']" routerLinkActive="router-link-active">Event List</a>
 				</li>
 				<li class="nav-item" *ngIf="sessionKey">
-					<a class="nav-link" [routerLink]="['/event']" routerLinkActive="router-link-active">Add Event</a>
+					<a class="nav-link" [routerLink]="['/addevent']" routerLinkActive="router-link-active">Add Event</a>
 				</li>
 				<li class="nav-item" *ngIf="sessionKey">
 					<a class="nav-link" (click)="logOut()" [routerLink]="['/login']" routerLinkActive="router-link-active">Log Out</a>
