@@ -1,0 +1,9 @@
+.register, .image {
+	min-height: 100vh;
+}
+
+.bg-image {
+	background-image: url('https://w.wallhaven.cc/full/zm/wallhaven-zm75qg.jpg');
+	background-size: cover;
+	background-position: center center;
+}

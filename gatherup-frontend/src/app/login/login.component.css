@@ -1,0 +1,9 @@
+.login, .image {
+	min-height: 100vh;
+}
+
+.bg-image {
+	background-image: url('https://w.wallhaven.cc/full/73/wallhaven-7377vy.png');
+	background-size: cover;
+	background-position: center center;
+}

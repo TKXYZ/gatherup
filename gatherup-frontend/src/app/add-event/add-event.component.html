@@ -1,0 +1,50 @@
+<div class="container shadow bg-light p-2 my-5">
+	<div class="container d-flex justify-content-center mt-5">
+		<img class="rounded mx-auto d-block shadow" src="https://w.wallhaven.cc/full/5w/wallhaven-5w6j85.jpg" width="50%" alt="Event Image">
+	</div>
+	<!-- EVENT CREATION -->
+	<div class="container">
+		<div class="row">
+			<div class="col-6 mx-auto">
+				<h2 class="display-4 text-center m-4">Add an Event</h2>
+				<form (ngSubmit)="createEvent()" #thisForm="ngForm">
+					<!-- INPUT FIELDS -->
+					<div class="form-group">
+						<input [(ngModel)]="event.eventName" #eventName="ngModel" name="inputEventName" id="inputEventName" type="text" placeholder="Event Name" class="form-control border-0 shadow px-4" required>
+					</div>
+					<div class="form-group">
+						<input [(ngModel)]="event.eventDescription" #eventDescription="ngModel" name="inputEventDescription" id="inputEventDescription" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
+					</div>
+					<div class="form-group">
+						<input [(ngModel)]="event.eventLocation" #eventLocation="ngModel" name="inputEventLocation" id="inputEventLocation" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
+					</div>
+					<div class="form-group">
+						<input [(ngModel)]="event.dateTime" #dateTime="ngModel" name="inputDateTime" id="inputDateTime" type="datetime-local" class="form-control border-0 shadow px-4" required>
+					</div>
+					<div class="form-group">
+						<select [(ngModel)]="event.eventType" #eventType="ngModel" name="inputEventType" id="inputEventType" class="form-control border-0 shadow px-4">
+							<option value="Generic Event">Generic Event</option>
+							<option value="Outdoors">Outdoors</option>
+							<option value="Bar">Bar</option>
+							<option value="Brunch">Brunch</option>
+							<option value="Party">Party</option>
+							<option value="Game Night">Game Night</option>
+							<option value="Hootenanny">Hootenanny</option>
+						</select>
+					</div>
+
+					<!-- BUTTONS -->
+					<div class="container col-8 my-5">
+						<button class="btn btn-success btn-block shadow" type="submit">Add</button>
+						<button class="btn btn-warning btn-block shadow" type="reset">Reset</button>
+					</div>
+				</form>
+
+				<!-- ROUTING -->
+				<!-- <div class="container col-8 my-4">
+					<button class="btn btn-primary btn-block shadow" type="button" [routerLink]="['/profile']" routerLinkActive="router-link-active">My Profile</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
