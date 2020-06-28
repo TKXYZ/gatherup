@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
 		this.loggy.info(this.user);
 
 		// Validates and routes accordingly
-		this.userService.createUser(this.user).subscribe(result => {
+		this.userService.register(this.user).subscribe(result => {
 			this.loggy.info("User from DB: ");
 			this.loggy.info(result);
 
