@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
 		// Validates and routes accordingly
 		this.userService.login(this.user).subscribe(result => {
-			this.loggy.info("User from database: ");
+			this.loggy.info("User from DB: ");
 			this.loggy.info(result);
 
 			if (result != null) {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 				this.loggy.info("Storing key: " + sessionKey);
 
 				// Route
-				window.location.assign("/eventview")
+				window.location.assign("/eventlist")
 			} else {
 				alert("Invalid credentials!");
 			}
