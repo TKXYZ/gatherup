@@ -25,10 +25,11 @@ export class ProfileComponent implements OnInit {
 		if (this.sessionKey == null) {
 			window.location.assign("/login");
 		} else {
-			this.userService.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
+			this.userService.getUserByEmail(this.sessionKey).subscribe(result => this.user = result);
 		}
 	}
 
+	// Clears current user's session
 	logOut() {
 		this.loggy.info("--- logOut() button clicked ---");
 

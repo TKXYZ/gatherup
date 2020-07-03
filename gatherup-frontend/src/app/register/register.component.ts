@@ -12,23 +12,28 @@ import { UserService } from '../services/user/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-	user: User;
+	user: User = new User(undefined, undefined, undefined, undefined, undefined, undefined);
 
 	constructor(private router: Router, private loggy: NGXLogger, private userService: UserService) { }
 
 	ngOnInit(): void {
-		this.user = new User();
 	}
 
 	register() {
-		this.loggy.info("--- register() button pressed ---");
+		// Constructs a user object based on input values
+		let email = (<HTMLInputElement>document.getElementById("inputEmail")).value;
+		let password = (<HTMLInputElement>document.getElementById("inputPassword")).value;
+		let firstName = (<HTMLInputElement>document.getElementById("inputFirstName")).value;
+		let lastName = (<HTMLInputElement>document.getElementById("inputLastName")).value;
+		let contact = (<HTMLInputElement>document.getElementById("inputContact")).value;
+		let user: User = new User(undefined, email, password, firstName, lastName, contact);
 
 		// Sanity check
 		this.loggy.info("Sending user to backend: ");
-		this.loggy.info(this.user);
+		this.loggy.info(user);
 
 		// Validates and routes accordingly
-		this.userService.register(this.user).subscribe(result => {
+		this.userService.register(user).subscribe(result => {
 			this.loggy.info("User from DB: ");
 			this.loggy.info(result);
 
@@ -36,7 +41,7 @@ export class RegisterComponent implements OnInit {
 				this.loggy.info("Registration success.");
 
 				// Saves data (email) to a session
-				sessionStorage.setItem("email", this.user.email);
+				sessionStorage.setItem("email", email);
 				let sessionKey = sessionStorage.getItem("email");
 				this.loggy.info("Storing key: " + sessionKey);
 

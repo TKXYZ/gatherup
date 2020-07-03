@@ -1,8 +1,8 @@
 <div class="container shadow bg-light p-2 my-5">
 	<div class="container">
-		<div class="display-4 text-center m-4">
-			My Events
-		</div>
+
+		<!-- EVENT LIST -->
+		<h1 class="display-4 text-center m-4">My Events</h1>
 		<div class="container col-8">
 			<div *ngFor="let event of events; let i=index">
 				<div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
@@ -14,15 +14,10 @@
 					<p><strong>Event Type: </strong>{{event?.eventType}}</p>
 					<hr>
 
+					<!-- BUTTONS -->
 					<button class="btn btn-danger" (click)="deleteEvent(i)" type="button">Delete</button>
 				</div>
 			</div>
 		</div>
-
-		<!-- ROUTING -->
-		<!-- <div class="container col-4">
-			<button class="btn btn-success btn-block shadow my-4" type="button" [routerLink]="['/event']" routerLinkActive="router-link-active">Add a New Event</button>
-			<button class="btn btn-primary btn-block shadow my-4" type="button" [routerLink]="['/profile']" routerLinkActive="router-link-active">My Profile</button>
-		</div> -->
 	</div>
 </div>

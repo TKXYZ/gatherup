@@ -1,13 +1,18 @@
 <div class="container shadow bg-light p-2 my-5">
+
+	<!-- PICTURE -->
 	<div class="container d-flex justify-content-center mt-5">
 		<img class="rounded mx-auto d-block shadow" src="https://w.wallhaven.cc/full/5w/wallhaven-5w6j85.jpg" width="50%" alt="Event Image">
 	</div>
-	<!-- EVENT CREATION -->
+
 	<div class="container">
 		<div class="row">
 			<div class="col-6 mx-auto">
-				<h2 class="display-4 text-center m-4">Add an Event</h2>
+
+				<!-- ADD EVENT -->
+				<h1 class="display-4 text-center m-4">Add an Event</h1>
 				<form (ngSubmit)="createEvent()" #thisForm="ngForm">
+
 					<!-- INPUT FIELDS -->
 					<div class="form-group">
 						<input [(ngModel)]="event.eventName" #eventName="ngModel" name="inputEventName" id="inputEventName" type="text" placeholder="Event Name" class="form-control border-0 shadow px-4" required>
@@ -39,11 +44,6 @@
 						<button class="btn btn-warning btn-block shadow" type="reset">Reset</button>
 					</div>
 				</form>
-
-				<!-- ROUTING -->
-				<!-- <div class="container col-8 my-4">
-					<button class="btn btn-primary btn-block shadow" type="button" [routerLink]="['/profile']" routerLinkActive="router-link-active">My Profile</button>
-				</div> -->
 			</div>
 		</div>
 	</div>

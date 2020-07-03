@@ -2,28 +2,25 @@
 	<div class="card" style="width: 18rem;">
 		<img class="card-img-top my-4 p-4" src="https://gatherup.com/wp-content/themes/gatherup/assets/images/GatherUp-Logo.svg" alt="Card Image">
 		<div class="card-body">
-			<h4 class="card-title mb-4">User Information</h4>
+
 			<!-- USER INFORMATION -->
-			<div class="text-left">
-				<p><strong>Email: </strong>{{user?.email}}</p>
-				<p><strong>Password: </strong>{{user?.password}}</p>
-				<p><strong>First Name: </strong>{{user?.firstName}}</p>
-				<p><strong>Last Name: </strong>{{user?.lastName}}</p>
-				<p><strong>Contact: </strong>{{user?.contact}}</p>
+			<div class="container">
+				<h4 class="card-title mb-4">User Information</h4>
+				<div class="text-left">
+					<p><strong>Email: </strong>{{user?.email}}</p>
+					<p><strong>Password: </strong>{{user?.password}}</p>
+					<p><strong>First Name: </strong>{{user?.firstName}}</p>
+					<p><strong>Last Name: </strong>{{user?.lastName}}</p>
+					<p><strong>Contact: </strong>{{user?.contact}}</p>
+				</div>
 			</div>
+
 			<!-- BUTTONS -->
 			<div class="mt-5">
-				<button class="btn btn-primary btn-block" [routerLink]="['/eventview']" routerLinkActive="router-link-active">My Events</button>
-				<button class="btn btn-success btn-block" [routerLink]="['/event']" routerLinkActive="router-link-active">Add Events</button>
+				<button class="btn btn-primary btn-block" [routerLink]="['/eventlist']" routerLinkActive="router-link-active">My Events</button>
+				<button class="btn btn-success btn-block" [routerLink]="['/addevent']" routerLinkActive="router-link-active">Add Events</button>
 				<button class="btn btn-danger btn-block" (click)="logOut()" [routerLink]="['/']" routerLinkActive="router-link-active">Log Out</button>
 			</div>
 		</div>
 	</div>
 </div>
-
-<!-- 
-	*ngFor="let user of users"
-
-	To print raw JSON:
-		<p>User: {{user | json}}</p>
- -->
