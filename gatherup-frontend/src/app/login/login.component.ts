@@ -12,23 +12,25 @@ import { UserService } from '../services/user/user.service';
 })
 export class LoginComponent implements OnInit {
 
-	user: User;
+	user: User = new User(undefined, undefined, undefined, undefined, undefined, undefined);
 
 	constructor(private router: Router, private loggy: NGXLogger, private userService: UserService) { }
 
 	ngOnInit(): void {
-		this.user = new User();
 	}
 
 	login() {
-		this.loggy.info("--- login() button pressed ---");
+		// Constructs a user object based on input values
+		let email = (<HTMLInputElement>document.getElementById("inputEmail")).value;
+		let password = (<HTMLInputElement>document.getElementById("inputPassword")).value;
+		let user: User = new User(undefined, email, password, undefined, undefined, undefined);
 
 		// Sanity check
 		this.loggy.info("Sending user to backend: ");
-		this.loggy.info(this.user);
+		this.loggy.info(user);
 
 		// Validates and routes accordingly
-		this.userService.login(this.user).subscribe(result => {
+		this.userService.login(user).subscribe(result => {
 			this.loggy.info("User from DB: ");
 			this.loggy.info(result);
 
@@ -36,11 +38,11 @@ export class LoginComponent implements OnInit {
 				this.loggy.info("Login success.");
 
 				// Saves data (email) to a session
-				sessionStorage.setItem("email", this.user.email);
+				sessionStorage.setItem("email", email);
 				let sessionKey = sessionStorage.getItem("email");
 				this.loggy.info("Storing key: " + sessionKey);
 
-				// Route
+				// Routes
 				window.location.assign("/eventlist")
 			} else {
 				alert("Invalid credentials!");

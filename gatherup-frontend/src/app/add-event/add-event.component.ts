@@ -29,13 +29,14 @@ export class AddEventComponent implements OnInit {
 		}
 	}
 
+	// Creates an event
 	createEvent() {
 		this.loggy.info("createEvent() clicked.");
 
 		// Sanity check
 		this.loggy.info(this.event);
 
-		// POSTs event to endpoint and routes to event view
-		this.eventService.createEvent(this.event).subscribe(data => this.router.navigate(["/eventview"]));
+		// POSTs event to endpoint and routes to event list
+		this.eventService.createEvent(this.event).subscribe(result => this.router.navigate(["/eventlist"]));
 	}
 }

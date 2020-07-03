@@ -7,5 +7,4 @@ export class Event {
 	eventLocation: string;
 	dateTime: string;
 	eventType: string;
-
 }

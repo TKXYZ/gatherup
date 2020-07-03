@@ -1,5 +1,6 @@
 <div class="container-fluid">
 	<div class="row no-gutter">
+
 		<!-- LEFT HALF -->
 		<div class="col-md-6 d-none d-md-flex bg-image"></div>
 
@@ -13,13 +14,14 @@
 						<div class="col-8 mx-auto">
 							<p class="display-4">Register</p>
 							<form (ngSubmit)="register()" #thisForm="ngForm">
+
 								<!-- INPUT FIELDS -->
 								<div class="form-group">
 									<input [(ngModel)]="user.email" #email="ngModel" name="inputEmail" id="inputEmail" type="email" placeholder="Email address" class="form-control rounded-pill border-0 shadow px-4" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
 									<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
 										<div *ngIf="email.errors.required">Email is required!</div>
 										<!-- PatternValidator -->
-										<div *ngIf="email.errors?.pattern">Email must be in [email@domain.info] format.</div>
+										<div *ngIf="email.errors?.pattern">Format: email@domain.info</div>
 									</div>
 								</div>
 								<div class="form-group">
@@ -58,9 +60,7 @@
 
 								<!-- ROUTING -->
 								<div class="text-center justify-content-between mt-4">
-									<p>
-										Have an account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="font-italic text-muted">Login</a>
-									</p>
+									<p>Have an account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="font-italic text-muted">Login</a></p>
 								</div>
 							</form>
 						</div>

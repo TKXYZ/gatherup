@@ -31,12 +31,12 @@ export class EventListComponent implements OnInit {
 		if (this.sessionKey == null) {
 			window.location.assign("/login");
 		} else {
-			this.eventService.getAllEvents().subscribe(data => {
+			this.eventService.getAllEvents().subscribe(result => {
 				this.loggy.info("ALL EVENTS FROM DATABASE: ");
-				for (let i in data) {
-					this.loggy.info(data[i]);
-					if (data[i].userEmail == sessionStorage.getItem("email")) {
-						this.events.push(data[i]);
+				for (let i in result) {
+					this.loggy.info(result[i]);
+					if (result[i].userEmail == sessionStorage.getItem("email")) {
+						this.events.push(result[i]);
 					}
 				}
 			});
@@ -52,7 +52,7 @@ export class EventListComponent implements OnInit {
 		// Assigns to local variable and passes it as an argument to backend
 		this.tempID = this.events[index].eventID;
 		this.loggy.info("Current index's eventID: " + this.events[index].eventID);
-		this.eventService.deleteEventById(this.tempID).subscribe(data => this.event = data)
+		this.eventService.deleteEventById(this.tempID).subscribe(result => this.event = result)
 
 		// Removes from local array (to hide from user immediately)
 		this.events.splice(index, 1);
